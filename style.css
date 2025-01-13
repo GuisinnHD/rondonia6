@@ -1,0 +1,61 @@
+body {
+background-color: black;   
+font-family: Arial, Helvetica, sans-serif;
+h1{color: white;}
+h2{color: white;}
+p{color: white;}
+h3{color: white;}
+
+/* Botão*/
+.botao {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #0a0a0a;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.botao img {
+    width: 50px; /* Ajuste o tamanho da imagem */
+    height: auto;
+    margin-right: 10px;
+}
+.botao span {
+    font-size: 16px;
+    color: #9b9b9b;
+}
+.botao:hover {
+    background-color: #242424;
+}
+/* Botão Ddakji*/
+.botaoddakji {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #0a0a0a;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.botaoddakji img {
+    width: 150px; /* Ajuste o tamanho da imagem */
+    height: auto;
+    margin-right: 10px;
+}
+.botaoddakji span {
+    font-size: 16px;
+    color: #9b9b9b;
+}
+.botaoddakji:hover {
+    background-color: #242424;
+}
+
+/* Card*/
+.card {
+    width: 1000px; /* Ajuste o tamanho da imagem */
+    height: auto;
+    margin-right: 10px;
+}
+
+}

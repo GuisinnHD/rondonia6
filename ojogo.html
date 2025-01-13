@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>O Jogo!</title>
+</head>
+<body>
+    <h1 id="titulo"></h1>
+    <h2>Agora tente virar o meu!</h2>
+
+    <script>
+        // Captura o parâmetro 'cor' da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const corEscolhida = urlParams.get('cor');
+
+        // Atualiza o texto com a cor escolhida
+        const titulo = document.getElementById('titulo');
+        if (corEscolhida) {
+            titulo.textContent = `Ótimo! Você escolheu o cartão ${corEscolhida}!`;
+        } else {
+            titulo.textContent = 'Ótimo! Você escolheu um cartão';
+        }
+
+        // Função para arremessar ddakji
+        function arremessar() {
+            const resultado = Math.random(); // Gera um número aleatório entre 0 e 1
+            console.log('Resultado do arremesso:', resultado); // Adicionado para verificar o valor
+
+            // Verifica a cor escolhida para determinar o redirecionamento
+            if (corEscolhida === 'vermelho') {
+                // Para o cartão vermelho: 50% chance de perder, 50% de ganhar
+                if (resultado < 0.5) {
+                    window.location.href = 'perdeu.html'; // Redireciona para a página "perdeu.html"
+                } else {
+                    window.location.href = 'ligar.html?cor=vermelho'; // Redireciona para a página "ligar.html" com cor vermelha
+                }
+            } else if (corEscolhida === 'azul') {
+                // Para o cartão azul: 50% chance de perder, 50% de ganhar
+                if (resultado < 0.5) {
+                    window.location.href = 'perdeu.html'; // Redireciona para a página "perdeu.html"
+                } else {
+                    window.location.href = 'ligar.html?cor=azul'; // Redireciona para a página "ligar.html" com cor azul
+                }
+            }
+        }
+
+        // Chama a função de arremesso quando o botão for clicado
+        document.addEventListener('DOMContentLoaded', () => {
+            const arremessarBtn = document.querySelector('.botaoddakji');
+            if (arremessarBtn) {
+                arremessarBtn.addEventListener('click', () => {
+                    arremessar(); // Chama a função de arremesso
+                });
+            }
+        });
+    </script>
+
+    <!-- Mudança para button em vez de link -->
+    <button class="botaoddakji">
+        <img src="images/squidlogo1.png" alt="Logo SquidGame 1">
+        <span>Arremessar ddakji! 💥</span>
+    </button>
+    
+</body>
+</html>

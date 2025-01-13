@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Nada de tapa!</title>
+</head>
+<body>
+    <h1>Você venceu!</h1>
+    <p>Caso queira jogar mais jogos como esse em troca de dinheiro, me ligue:</p>
+    
+    <img src="images/cardr6.jpg" class="card">
+
+    <button class="botaoddakji" onclick="realizarChances()">
+        <img src="images/ligarnow.jpg" alt="Ligar agora">
+        <span>Ligar agora.</span>
+    </button>
+
+    <script>
+        // Captura o parâmetro 'cor' da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const corEscolhida = urlParams.get('cor');
+        console.log("Cor escolhida:", corEscolhida);  // Adicionado para verificar se o valor da cor é capturado corretamente
+
+        function realizarChances() {
+            let destino;
+
+            // Verifica se a cor foi capturada corretamente
+            if (corEscolhida) {
+                // Verifica a cor escolhida e faz o sorteio
+                if (corEscolhida === 'vermelho') {
+                    const resultadoVermelho = Math.random();
+                    if (resultadoVermelho < 0.01) {
+                        destino = 'frontman.html'; // 1% de chance para frontman
+                    } else {
+                        destino = 'guarda.html'; // 99% de chance para guarda
+                    }
+                } else if (corEscolhida === 'azul') {
+                    const resultadoAzul = Math.random();
+                    if (resultadoAzul < 0.01) {
+                        destino = 'frontman.html'; // 1% de chance para frontman
+                    } else {
+                        destino = 'jogador.html'; // 99% de chance para jogador
+                    }
+                } else {
+                    alert('Cor não válida!'); // Caso não tenha cor válida
+                    return;
+                }
+
+                // Redireciona para o destino calculado
+                window.location.href = destino;
+            } else {
+                alert('Erro: Parâmetro de cor não encontrado!');
+            }
+        }
+    </script>
+
+</body>
+</html>
